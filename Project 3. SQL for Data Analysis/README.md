@@ -82,7 +82,7 @@ My solution
   WHERE G.NAME = 'Rock'
   GROUP BY 1
   ORDER BY 2 DESC
-
+```
   ### Practice:
 
 1. how many songs based on genre does customer 12 buy?
@@ -184,6 +184,7 @@ You are now on the portion of the project you will need to submit to a reviewer.
 The submission template is a Google Slides file. Make a copy of the submission template to complete your project. We suggest you use the layout provided, though it is not a requirement.
 
 **Queries**
+
 Please include a text file that includes each of the queries used to create the visualizations. You should **format** your queries for readability, use this tool to help http://www.sql-format.com/. In a plain text file (use notepad, notepad++, or atom).
 
 **Visualizations**
