@@ -206,7 +206,8 @@ You should have four slides that are similar to the below submission, but the qu
 
 
 ## Queries I used for my Project:
-/* Query1 - Who are the top 10 highest earning artists?*/  	
+Query1 - Who are the top 10 highest earning artists?
+```  	
 SELECT
   Artist.Name,
   SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) AS ArtistEarnings
@@ -222,9 +223,10 @@ JOIN Artist
 GROUP BY Artist.ArtistId
 ORDER BY ArtistEarnings DESC
 LIMIT 10;
+```
 
-
-/* Query 2 - How Many Albums were sold in the Top 10 Countries */ 
+Query 2 - How Many Albums were sold in the Top 10 Countries?
+```
 SELECT  i.billingcountry country, COUNT(*) num_album 
 FROM album a 
 JOIN track t
@@ -236,8 +238,10 @@ ON il.invoiceid = i.invoiceid
 GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 10;
+```
 
-/* Query 3 - For all the Sales made by Sales Agents */
+ Query 3 - For all the Sales made by Sales Agents 
+ ```
 SELECT
     (CASE
       WHEN e.employeeid = '3' THEN i.total
@@ -256,8 +260,9 @@ SELECT
     ON c.supportrepid = e.employeeid
   JOIN invoice i
     ON i.customerid = customerid
-
-/* Query 4 - What is the percentage of sale by media type */
+```
+ Query 4 - What is the percentage of sale by media type 
+ ```
 SELECT
     *,
     (SELECT
@@ -275,5 +280,5 @@ SELECT
     ON il.trackid = t.trackid
   GROUP BY 1
   ORDER BY 2 DESC) subquery;
-
+```
 
