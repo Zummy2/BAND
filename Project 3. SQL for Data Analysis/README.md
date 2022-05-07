@@ -189,7 +189,6 @@ Please include a text file that includes each of the queries used to create the 
 **Visualizations**
 We suggest you use a spreadsheet application, such as Excel or Google Sheets to create your visualizations. However, you’re welcome to use whatever tool you’d like. Your visualizations could be any that you learned about in the previous lesson. Below is one example, and a link has been provided to an example slide.
 
-![image](./Misc/002.png)
 
 You should have four slides that are similar to the below submission, but the questions you ask are up to you, and all four of your final submitted queries should contain a JOIN and AGGREGATION.
 
@@ -201,3 +200,79 @@ You should have four slides that are similar to the below submission, but the qu
 * The first part of this project is aimed at helping you understand the database, so you can ask interesting questions in the second part. Feel free to use and expand upon the queries you wrote in the first part.
 * Once you've finished your project, submit the presentation as a PDF and the queries as a .txt file.
 * Don't be afraid to challenge yourself! Try to combine the SQL concepts you know!
+
+# My Project
+
+
+## Queries I used for my Project:
+/* Query1 - Who are the top 10 highest earning artists?*/  	
+SELECT
+  Artist.Name,
+  SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) AS ArtistEarnings
+FROM Invoice
+JOIN InvoiceLine
+  ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+JOIN Track
+  ON Track.TrackId = InvoiceLine.TrackId
+JOIN Album
+  ON Track.AlbumId = Album.AlbumId
+JOIN Artist
+  ON Album.ArtistId = Artist.ArtistId
+GROUP BY Artist.ArtistId
+ORDER BY ArtistEarnings DESC
+LIMIT 10;
+
+
+/* Query 2 - How Many Albums were sold in the Top 10 Countries */ 
+SELECT  i.billingcountry country, COUNT(*) num_album 
+FROM album a 
+JOIN track t
+ON a.albumid = t.albumid
+JOIN invoiceline il
+ON t.trackid = il.trackid 
+JOIN invoice i
+ON il.invoiceid = i.invoiceid 
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 10;
+
+/* Query 3 - For all the Sales made by Sales Agents */
+SELECT
+    (CASE
+      WHEN e.employeeid = '3' THEN i.total
+      ELSE NULL
+    END) AS Jane_Peacock,
+    (CASE
+      WHEN e.employeeid = '4' THEN i.total
+      ELSE NULL
+    END) AS Margaret_Park,
+    (CASE
+      WHEN e.employeeid = '5' THEN i.total
+      ELSE NULL
+    END) AS Steve_Johnson
+  FROM employee e
+  JOIN customer c
+    ON c.supportrepid = e.employeeid
+  JOIN invoice i
+    ON i.customerid = customerid
+
+/* Query 4 - What is the percentage of sale by media type */
+SELECT
+    *,
+    (SELECT
+      ROUND(ROUND((total_qty * 100), 2) / SUM(quantity), 2)
+    FROM invoiceline)
+    percentage
+
+  FROM (SELECT
+    m.name media_type,
+    SUM(quantity) AS total_qty
+  FROM mediatype m
+  JOIN track t
+    ON t.mediatypeid = m.mediatypeid
+  JOIN invoiceline il
+    ON il.trackid = t.trackid
+  GROUP BY 1
+  ORDER BY 2 DESC) subquery;
+
+
