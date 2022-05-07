@@ -13,3 +13,10 @@ Introduction to the program about where and how data applies to a variety of ind
 
 ## Introduction to Data(Project 2): Analyze NYSE DATA
 In this project, you'll use statistics and spreadsheet programs like Excel to analyze data from over 500 companies on the New York Stock Exchange. You'll also forecast financial metrics based on three possible scenarios for a company of your choice from the NYSE dataset.
+
+
+## SQL for Data Analysis(Project 3): Query a digital music store database
+
+Extract and analyze a data set using SQL. Use data gathered from a query result to find answers to business questions and visualize it to make it easier to understand. The project in this section is to analyze a digital music store in how data gathered from their database may help the company.
+
+>In this project, you will query a digital music store database which holds information regarding the store’s media, employees, and customers. You will use the database to help the store gain an understanding of the types of music that are purchased, where customers live, and how the company might optimize their business practices.
