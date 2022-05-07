@@ -21,10 +21,12 @@ Extract and analyze a data set using SQL. Use data gathered from a query result 
 
 >In this project, you will query a digital music store database which holds information regarding the store’s media, employees, and customers. You will use the database to help the store gain an understanding of the types of music that are purchased, where customers live, and how the company might optimize their business practices.
 
-## [Certificate of Completion](https://confirm.udacity.com/AKNWFK3H)
-
 
 ## Data Visualization(Project 4): Build Data Dashboards
 This section takes data visualizations to another level. Use Tableau to analyze and visualize large data sets, and create informative and dynamic data dashboards. This section makes it easier to visualize large data sets in a more readable form in order to present insights to all business areas.
 
 >In this project, you’ll build interactive dashboards with Tableau and use them to discover and communicate insights from data. You’ll use a dataset of flight delays in the US to visualize the quality of airlines and airports, find the best times to fly, and more.
+
+
+## [Certificate of Completion](https://confirm.udacity.com/AKNWFK3H)
+![image](https://user-images.githubusercontent.com/104661243/167256136-c1934ae0-d3e4-48eb-b377-c1bfd347cf56.png)
